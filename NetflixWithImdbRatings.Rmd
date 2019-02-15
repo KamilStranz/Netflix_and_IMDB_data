@@ -1,0 +1,25 @@
+---
+title: "Netflix pl + ratings IMDB"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(DT)
+
+setwd("C:/Users/Varia/Downloads")
+filmsMerged <- readRDS(file = "filmsMerged.RData")
+```
+
+
+```{r}
+DT::datatable(filmsMerged,
+              filter = "top",
+              options = list(pageLength = 19),
+              rownames = FALSE)
+```
+
